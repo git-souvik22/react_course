@@ -1,11 +1,12 @@
 import "./App.css";
 import React, { useState } from "react";
+import Child from "./Child";
 
 const App = () => {
   const [name, setName] = useState("Souvik");
   return (
     <div className="App">
-      <h1>{name}</h1>
+      <Child name={name} />
       <button
         className="btn btn-outline-dark fs-3"
         onClick={() => setName("Developer")}
