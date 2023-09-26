@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import Child from "./Child";
 
 const App = () => {
-  const [name, setName] = useState("Souvik");
+  const [name, setName] = useState("");
   const changeName = (value) => {
-    setName(name === "Souvik" ? value : "Souvik");
+    setName(name === "" ? "Souvik" : name === "Souvik" ? value : "Souvik");
   };
   return (
     <div className="App">
