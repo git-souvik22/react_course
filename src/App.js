@@ -4,8 +4,8 @@ import Child from "./Child";
 
 const App = () => {
   const [name, setName] = useState("Souvik");
-  const changeName = () => {
-    setName(name === "Souvik" ? "Developer" : "Souvik");
+  const changeName = (value) => {
+    setName(name === "Souvik" ? value : "Souvik");
   };
   return (
     <div className="App">

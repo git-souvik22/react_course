@@ -6,7 +6,7 @@ const Child = ({ name, changeName }) => {
       <h1>{name}</h1>
       <button
         className="btn btn-outline-dark fs-3"
-        onClick={() => changeName()}
+        onClick={() => changeName("Developer")}
       >
         Change Name
       </button>
