@@ -1,24 +1,22 @@
 import { useState } from "react";
 
 const App = () => {
-  const [movie, setMovie] = useState({
-    title: "Wrong Turn",
-    ratings: 4,
-  });
+  const [movies, setMovies] = useState([
+    { id: 1, title: "Spiderman", ratings: 4 },
+    { id: 2, title: "Superman", ratings: 5 },
+  ]);
 
   const handleClick = () => {
-    const updateMovie = {
-      ...movie,
-      ratings: 5,
-    };
-    setMovie(updateMovie);
+    setMovies(
+      movies.map((mov) => (mov.id === 1 ? { ...mov, title: "Avatar" } : mov))
+    );
   };
-
   return (
     <>
-      <h3>{movie.title}</h3>
-      <h4>Ratings: {movie.ratings}</h4>
-      <button onClick={handleClick}>Change Ratings</button>
+      {movies.map((movie) => (
+        <li key={movie.id}>{movie.title}</li>
+      ))}
+      <button onClick={handleClick}>Change Name</button>
     </>
   );
 };
