@@ -1,8 +1,8 @@
 const Button = () => {
-  const handleClick = () => {
-    alert("You Clicked Mee !");
+  const handleClick = (a, b) => {
+    console.log(a + b);
   };
-  return <button onClick={handleClick}>Click</button>;
+  return <button onClick={() => handleClick(2, 2)}>Click</button>;
 };
 
 const App = () => {
