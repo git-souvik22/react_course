@@ -1,16 +1,16 @@
-const ValidPassword = () => <h1>Valid Password ✅</h1>;
-const InvalidPassword = () => <h1>Invalid Password ❌</h1>;
-
-const Password = ({ isValid }) => {
-  return isValid ? <ValidPassword /> : <InvalidPassword />;
+const Button = () => {
+  const handleClick = () => {
+    alert("You Clicked Mee !");
+  };
+  return <button onClick={handleClick}>Click</button>;
 };
 
-function App() {
+const App = () => {
   return (
     <>
-      <Password isValid={true} />
+      <Button />
     </>
   );
-}
+};
 
 export default App;
