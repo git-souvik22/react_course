@@ -1,17 +1,19 @@
-import "./App.css";
-import React, { useState } from "react";
-import Child from "./Child";
+const ValidPassword = () => <h1>Valid Password</h1>;
+const InvalidPassword = () => <h1>Invalid Password</h1>;
 
-const App = () => {
-  const [name, setName] = useState("");
-  const changeName = (value) => {
-    setName(name === "" ? "Souvik" : name === "Souvik" ? value : "Souvik");
-  };
-  return (
-    <div className="App">
-      <Child name={name} changeName={changeName} />
-    </div>
-  );
+const Password = ({ isValid }) => {
+  if (isValid) {
+    return <ValidPassword />;
+  }
+  return <InvalidPassword />;
 };
+
+function App() {
+  return (
+    <>
+      <Password isValid={false} />
+    </>
+  );
+}
 
 export default App;
