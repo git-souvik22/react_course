@@ -1,29 +1,14 @@
-const Cart = () => {
-  const items = [
-    "Apple Earbuds",
-    "Microphone",
-    "Coffee Mug",
-    "Mechanical Keyboard",
-  ];
+const ValidPassword = () => <h1>Valid Password ✅</h1>;
+const InvalidPassword = () => <h1>Invalid Password ❌</h1>;
 
-  return (
-    <>
-      <h1>🛒Cart</h1>
-      {items.length > 0 && <h3>You have {items.length} items in your Cart</h3>}
-      <ul>
-        <h4>👇Products</h4>
-        {items.map((item, index) => (
-          <li key={index + 1}>{item}</li>
-        ))}
-      </ul>
-    </>
-  );
+const Password = ({ isValid }) => {
+  return isValid ? <ValidPassword /> : <InvalidPassword />;
 };
 
 function App() {
   return (
     <>
-      <Cart />
+      <Password isValid={true} />
     </>
   );
 }
