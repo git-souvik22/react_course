@@ -11,7 +11,7 @@ const Password = ({ isValid }) => {
 function App() {
   return (
     <>
-      <Password isValid={false} />
+      <Password isValid={true} />
     </>
   );
 }
