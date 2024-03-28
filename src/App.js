@@ -1,31 +1,26 @@
 import { useState } from "react";
 
-const Counter = () => {
-  const [num, setNum] = useState(0);
+const App = () => {
+  const [movie, setMovie] = useState({
+    title: "Wrong Turn",
+    ratings: 4,
+  });
 
-  const inc = () => {
-    if (num < 20) {
-      setNum(num + 1);
-    }
-  };
-
-  const dec = () => {
-    if (num > 0) {
-      setNum(num - 1);
-    }
+  const handleClick = () => {
+    const updateMovie = {
+      ...movie,
+      ratings: 5,
+    };
+    setMovie(updateMovie);
   };
 
   return (
     <>
-      <h2>{num}</h2>
-      <button onClick={inc}>+</button>
-      <button onClick={dec}>-</button>
+      <h3>{movie.title}</h3>
+      <h4>Ratings: {movie.ratings}</h4>
+      <button onClick={handleClick}>Change Ratings</button>
     </>
   );
-};
-
-const App = () => {
-  return <Counter />;
 };
 
 export default App;
