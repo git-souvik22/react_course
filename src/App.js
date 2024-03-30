@@ -1,25 +1,25 @@
 import { useState } from "react";
 
 const App = () => {
-  const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
+  const [todos, setTodos] = useState([]);
 
-  const generateId = () => {
+  const generateID = () => {
     return Math.floor(Math.random() * 100);
   };
 
   const addTodo = () => {
-    setTodos((todos) =>
-      todos.concat({
+    setTodos((todos) => {
+      return todos.concat({
         text: input,
-        id: generateId(),
-      })
-    );
+        id: generateID(),
+      });
+    });
     setInput("");
   };
 
   const removeTodo = (id) => {
-    setTodos((todos) => todos.filter((todo) => todo.id !== id));
+    setTodos((todos) => todos.filter((t) => t.id !== id));
   };
 
   return (
@@ -32,11 +32,11 @@ const App = () => {
       />
       <button onClick={() => addTodo()}>ADD</button>
 
-      <h2> Todos :-</h2>
+      <h2>Todo list :-</h2>
 
-      <ul className="todo-list">
+      <ul>
         {todos.map(({ text, id }) => (
-          <li className="todo" key={id}>
+          <li key={id}>
             <span>{text}</span>
             <button onClick={() => removeTodo(id)}>❌</button>
           </li>
