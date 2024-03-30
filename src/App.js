@@ -1,15 +1,14 @@
-import { useRef } from "react";
+import useFetch from "./useFetch";
 
 const App = () => {
-  const inputElement = useRef(null);
-  const focusInput = () => {
-    inputElement.current.focus();
-    inputElement.current.value = "Souvik";
-  };
+  const [data] = useFetch("https://jsonplaceholder.typicode.com/todos");
+
   return (
     <>
-      <input type="text" ref={inputElement} />
-      <button onClick={() => focusInput()}>Action Btn</button>
+      {data &&
+        data.map((item) => {
+          return <p key={item.id}>{item.title}</p>;
+        })}
     </>
   );
 };
