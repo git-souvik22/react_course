@@ -9,12 +9,12 @@ const App = () => {
   };
 
   const addTodo = () => {
-    setTodos((todos) => {
-      return todos.concat({
+    setTodos((todos) =>
+      todos.concat({
         text: input,
         id: generateID(),
-      });
-    });
+      })
+    );
     setInput("");
   };
 
