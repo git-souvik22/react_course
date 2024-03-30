@@ -1,22 +1,17 @@
 import { useState } from "react";
-
 const App = () => {
   const [input, setInput] = useState("");
   const [todos, setTodos] = useState([]);
-
   const generateID = () => {
     let index = todos.length;
     return (index += 1);
   };
-
   const addTodo = () => {
     setTodos([...todos, { text: input, id: generateID() }]);
     setInput("");
   };
-
   const removeTodo = (id) =>
     setTodos((todos) => todos.filter((t) => t.id !== id));
-
   return (
     <>
       <input
@@ -26,9 +21,7 @@ const App = () => {
         placeholder="New Todo"
       />
       <button onClick={() => addTodo()}>ADD</button>
-
       <h2>Todo list :-</h2>
-
       <ul>
         {todos.map(({ text, id }) => (
           <li key={id}>
@@ -40,5 +33,4 @@ const App = () => {
     </>
   );
 };
-
 export default App;
