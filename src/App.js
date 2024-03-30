@@ -1,23 +1,40 @@
-import { createContext } from "react"; // imported Context API
-import ContextComponent from "./ContextComponent";
-
-export const Data = createContext(); // instance of Context API
+import { useReducer } from "react";
 
 const App = () => {
-  const name = "Souvik Roy";
-  const age = 22;
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  const dataObj = {
-    name: name,
-    age: age,
-  };
   return (
     <>
-      <Data.Provider value={dataObj}>
-        <ContextComponent />
-      </Data.Provider>
+      <h1>{state.count}</h1>
+      <button onClick={() => dispatch({ type: "increment" })}>+</button>
+      <button onClick={() => dispatch({ type: "decrement" })}>-</button>
+      <button onClick={() => dispatch({ type: "reset" })}>Reset</button>
     </>
   );
+};
+
+const initialState = { count: 0 };
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "increment":
+      return {
+        ...state,
+        count: state.count + 1,
+      };
+    case "decrement":
+      return {
+        ...state,
+        count: state.count - 1,
+      };
+    case "reset":
+      return {
+        ...state,
+        count: 0,
+      };
+    default:
+      return state;
+  }
 };
 
 export default App;
