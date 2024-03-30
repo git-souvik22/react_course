@@ -1,42 +1,19 @@
-import { useReducer } from "react";
+import { useRef } from "react";
 
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const inputElement = useRef(null);
+
+  const focusInput = () => {
+    inputElement.current.focus();
+    inputElement.current.value = "Souvik";
+  };
 
   return (
     <>
-      <h1>{state.count}</h1>
-      <button onClick={() => dispatch({ type: "increment" })}>+</button>
-      <button onClick={() => dispatch({ type: "decrement" })}>-</button>
-      <button onClick={() => dispatch({ type: "reset" })}>🔄</button>
+      <input type="text" ref={inputElement} />
+      <button onClick={() => focusInput()}>Action Btn</button>
     </>
   );
-};
-
-const initialState = { count: 0 };
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "increment":
-      return {
-        ...state,
-        count: state.count + 1,
-      };
-    case "decrement":
-      if (state.count > 0) {
-        return {
-          ...state,
-          count: state.count - 1,
-        };
-      }
-    case "reset":
-      return {
-        ...state,
-        count: 0,
-      };
-    default:
-      return state;
-  }
 };
 
 export default App;
