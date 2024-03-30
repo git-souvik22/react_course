@@ -5,22 +5,17 @@ const App = () => {
   const [todos, setTodos] = useState([]);
 
   const generateID = () => {
-    return Math.floor(Math.random() * 100);
+    let index = todos.length;
+    return (index += 1);
   };
 
   const addTodo = () => {
-    setTodos((todos) =>
-      todos.concat({
-        text: input,
-        id: generateID(),
-      })
-    );
+    setTodos([...todos, { text: input, id: generateID() }]);
     setInput("");
   };
 
-  const removeTodo = (id) => {
+  const removeTodo = (id) =>
     setTodos((todos) => todos.filter((t) => t.id !== id));
-  };
 
   return (
     <>
