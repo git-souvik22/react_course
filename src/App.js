@@ -1,10 +1,13 @@
-import ComponentA from "./ComponentA";
+import { createContext } from "react"; // context API
+import childComponent from "./childComponent";
+
+export const Data = createContext(); // instance of Context API
 
 const App = () => {
   const name = "Souvik Roy";
   return (
     <>
-      <ComponentA name={name} />
+      <childComponent />
     </>
   );
 };
