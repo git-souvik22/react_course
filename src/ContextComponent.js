@@ -1,12 +1,11 @@
 import { useContext } from "react";
-import { Data, Data1 } from "./App";
+import { Data } from "./App";
 
 const ContextComponent = () => {
-  const name = useContext(Data);
-  const age = useContext(Data1);
+  const dataObject = useContext(Data);
   return (
     <h1>
-      Hi, my name is : {name} & I'm {age} yrs old
+      Hi, my name is : {dataObject.name} & I'm {dataObject.age} yrs old
     </h1>
   );
 };
