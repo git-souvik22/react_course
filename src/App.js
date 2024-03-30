@@ -1,14 +1,13 @@
-import { useReducer } from "react";
+import { useReducer } from "react"; // imported useReducer Hook
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
   return (
     <>
       <h1>{state.count}</h1>
-      <button onClick={() => dispatch({ type: "increment" })}>+</button>
-      <button onClick={() => dispatch({ type: "decrement" })}>-</button>
-      <button onClick={() => dispatch({ type: "reset" })}>Reset</button>
+      <button onClick={() => dispatch({ type: "increment" })}>➕</button>
+      <button onClick={() => dispatch({ type: "decrement" })}>➖</button>
+      <button onClick={() => dispatch({ type: "reset" })}>🔄</button>
     </>
   );
 };
@@ -23,10 +22,12 @@ const reducer = (state, action) => {
         count: state.count + 1,
       };
     case "decrement":
-      return {
-        ...state,
-        count: state.count - 1,
-      };
+      if (state.count > 0) {
+        return {
+          ...state,
+          count: state.count - 1,
+        };
+      }
     case "reset":
       return {
         ...state,
