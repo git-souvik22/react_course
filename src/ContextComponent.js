@@ -1,24 +1,13 @@
-import { Data, Data2 } from "./App";
+import { useContext } from "react";
+import { Data, Data1 } from "./App";
 
 const ContextComponent = () => {
+  const name = useContext(Data);
+  const age = useContext(Data1);
   return (
-    <>
-      <Data.Consumer>
-        {(name) => {
-          return (
-            <Data2.Consumer>
-              {(age) => {
-                return (
-                  <h2>
-                    My Name is: {name} & I'm {age} yrs old.
-                  </h2>
-                );
-              }}
-            </Data2.Consumer>
-          );
-        }}
-      </Data.Consumer>
-    </>
+    <h1>
+      Hi, my name is : {name} & I'm {age} yrs old
+    </h1>
   );
 };
 

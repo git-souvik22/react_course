@@ -1,18 +1,18 @@
-import { createContext } from "react"; // import context API
+import { createContext } from "react"; // imported Context API
 import ContextComponent from "./ContextComponent";
 
-export const Data = createContext(); // intance of Context API
-export const Data2 = createContext();
+export const Data = createContext(); // instance of Context API
+export const Data1 = createContext();
 
 const App = () => {
   const name = "Souvik Roy";
-  const age = 23;
+  const age = 22;
   return (
     <>
       <Data.Provider value={name}>
-        <Data2.Provider value={age}>
+        <Data1.Provider value={age}>
           <ContextComponent />
-        </Data2.Provider>
+        </Data1.Provider>
       </Data.Provider>
     </>
   );
