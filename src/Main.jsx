@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Main = () => {
   const [inputValue, setInputValue] = useState("");
@@ -6,6 +6,10 @@ const Main = () => {
   function display(value) {
     setInputValue(inputValue + value);
   }
+
+  useEffect(() => {
+    console.log(inputValue);
+  });
 
   function calculate() {
     let answers = eval(inputValue);
@@ -19,7 +23,7 @@ const Main = () => {
   return (
     <>
       <form name="calc" className="calculator">
-        <input type="text" className="value" value={inputValue} />
+        <input readOnly type="text" className="value" value={inputValue} />
         <span className="num clear" onClick={() => clear()}>
           C
         </span>
