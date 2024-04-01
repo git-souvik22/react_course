@@ -1,9 +1,9 @@
-import Main from "./Main";
+import ToggleButtonColor from "./ToggleButtonColor";
 
 const App = () => {
   return (
     <>
-      <Main />
+      <ToggleButtonColor />
     </>
   );
 };
