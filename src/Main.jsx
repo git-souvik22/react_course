@@ -12,6 +12,7 @@ const Main = () => {
   });
 
   function calculate() {
+    // eslint-disable-next-line
     let answers = eval(inputValue);
     setInputValue(answers);
   }
