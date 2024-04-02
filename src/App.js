@@ -1,9 +1,9 @@
-import ToggleButtonColor from "./ToggleButtonColor";
+import HiddenSearchBar from "./HiddenSearchBar";
 
 const App = () => {
   return (
     <>
-      <ToggleButtonColor />
+      <HiddenSearchBar />
     </>
   );
 };
